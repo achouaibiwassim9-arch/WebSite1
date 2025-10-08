@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وكالة تصميم مواقع احترافية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #f9f9f9;
+            --dark-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        body[dir="ltr"] {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Top Bar Styles */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .top-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info span {
+            margin-left: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-left: 0.5rem;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: relative;
+        }
+
+        .language-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            min-width: 150px;
+            display: none;
+            z-index: 1001;
+        }
+
+        .language-options.show {
+            display: block;
+        }
+
+        .language-options a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: var(--transition);
+            border-bottom: 1px solid #eee;
+        }
+
+        .language-options a:hover {
+            background-color: #f5f5f5;
+            color: var(--secondary-color);
+        }
+
+        .language-options a:last-child {
+            border-bottom: none;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 40px;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 12rem 0 8rem;
+            margin-top: 110px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            margin-right: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: #f5f7fa;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 250px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #f5f7fa;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 1rem;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            right: 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.5rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-container {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            .contact-info span {
+                margin: 0 0.5rem;
+            }
+            
+            header {
+                top: 80px;
+            }
+            
+            .hero {
+                margin-top: 150px;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.8rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .contact-info span {
+                margin: 0;
+            }
+            
+            .hero {
+                padding: 8rem 0 5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +212 781-920640</span>
+                <span><i class="fas fa-envelope"></i> createwebsitesapp@gmail.com</span>
+                <span><i class="fab fa-whatsapp"></i> +212 781-920640</span>
+            </div>
+            <div class="language-switcher">
+                <div class="language-dropdown">
+                    <button class="language-btn">
+                        <i class="fas fa-globe"></i>
+                        <span data-translate="language">العربية</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-options">
+                        <a href="#" data-lang="ar" data-translate="arabic">العربية</a>
+                        <a href="#" data-lang="en" data-translate="english">English</a>
+                        <a href="#" data-lang="es" data-translate="spanish">Español</a>
+                        <a href="#" data-lang="fr" data-translate="french">Français</a>
+                        <a href="#" data-lang="de" data-translate="german">Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">تصميم<span>ويب</span></a>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-translate="home">الرئيسية</a></li>
+                    <li><a href="#services" data-translate="services">الخدمات</a></li>
+                    <li><a href="#portfolio" data-translate="portfolio">أعمالنا</a></li>
+                    <li><a href="#about" data-translate="about">من نحن</a></li>
+                    <li><a href="#testimonials" data-translate="testimonials">آراء العملاء</a></li>
+                    <li><a href="#contact" data-translate="contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 data-translate="hero_title">نحوّل فكرتك إلى موقع ويب احترافي يجذب الزبناء ويزيد مبيعاتك</h1>
+            <p data-translate="hero_subtitle">نحن وكالة تصميم مواقع متخصصة في إنشاء مواقع عصرية وسهلة الاستخدام للمطاعم والفنادق والشركات</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/212781920640" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> <span data-translate="whatsapp_contact">تواصل عبر واتساب</span></a>
+                <a href="#contact" class="btn" data-translate="get_started">ابدأ الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="services_title">خدماتنا</h2>
+                <p data-translate="services_subtitle">نقدم مجموعة متكاملة من خدمات تصميم وتطوير المواقع الإلكترونية</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 data-translate="service1_title">تصميم مواقع للمطاعم</h3>
+                    <p data-translate="service1_desc">تصميم مواقع جذابة للمطاعم تعرض القائمة والموقع وساعات العمل مع دعم نظام الحجوزات</p>
+                    <a href="#contact" class="btn" data-translate="order_now">اطلب الآن</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3 data-translate="service2_title">تصميم مواقع للفنادق</h3>
+                    <p data-translate="service2_desc">تصميم مواقع احترافية للفنادق تعرض الغرف والمرافق مع نظام حجوزات متكامل</p>
+                    <a href="#contact" class="btn" data-translate="order_now">اطلب الآن</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 data-translate="service3_title">تصميم متاجر إلكترونية</h3>
+                    <p data-translate="service3_desc">إنشاء متاجر إلكترونية متكاملة مع أنظمة دفع آمنة وإدارة المخزون والعروض</p>
+                    <a href="#contact" class="btn" data-translate="order_now">اطلب الآن</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-translate="service4_title">برمجة مواقع حسب الطلب</h3>
+                    <p data-translate="service4_desc">تطوير مواقع مخصصة حسب احتياجات عملك مع أحدث التقنيات وأفضل الممارسات</p>
+                    <a href="#contact" class="btn" data-translate="order_now">اطلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="portfolio_title">أعمالنا السابقة</h2>
+                <p data-translate="portfolio_subtitle">استعرض بعض المشاريع التي نفخر بتقديمها لعملائنا</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="موقع مطعم">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Zaha</h3>
+                        <p data-translate="portfolio_item1">موقع مطعم فرنسي أنيق</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="موقع فندق">
+                    <div class="portfolio-overlay">
+                        <h3>BlueStay Hotel</h3>
+                        <p data-translate="portfolio_item2">موقع فندق عصري</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="موقع نادي رياضي">
+                    <div class="portfolio-overlay">
+                        <h3>FitZone Gym</h3>
+                        <p data-translate="portfolio_item3">موقع نادي رياضي حديث</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="about_title">من نحن</h2>
+                <p data-translate="about_subtitle">تعرف على فريقنا ورسالتنا</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-translate="about_name">أنا وسيم، مصمم مواقع ويب محترف</h3>
+                    <p data-translate="about_desc1">أنا مصمم مواقع متخصص في إنشاء مواقع عصرية وسهلة الاستخدام للمطاعم والفنادق والشركات. أهدف إلى تحويل أفكار عملائي إلى تجربة رقمية جذابة واحترافية.</p>
+                    <p data-translate="about_desc2">مع خبرة تزيد عن 5 سنوات في مجال تصميم وتطوير المواقع، أساعد الشركات على تعزيز وجودها الرقمي وزيادة مبيعاتها من خلال مواقع ويب مصممة بعناية ومدروسة.</p>
+                    <a href="#contact" class="btn" data-translate="contact_me">تواصل معي</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="وسيم - مصمم مواقع">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="testimonials_title">آراء عملائنا</h2>
+                <p data-translate="testimonials_subtitle">ماذا يقول عملاؤنا عن خدماتنا</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-translate="testimonial1">
+                        "شكراً لكم على تصميم موقع مطعمنا الرائع! لقد ساعدنا الموقع في زيادة الحجوزات عبر الإنترنت بنسبة 40% خلال الشهر الأول فقط."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="سارة أحمد">
+                        </div>
+                        <div class="author-info">
+                            <h4 data-translate="client1_name">سارة أحمد</h4>
+                            <p data-translate="client1_position">مالكة مطعم لذيذ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-translate="testimonial2">
+                        "موقع الفندق الذي صممتموه لنا ساعد في زيادة معدل الحجوزات المباشرة وتقليل الاعتماد على مواقع الحجوزات الخارجية. تصميم احترافي وسهل الاستخدام."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="محمد الخالد">
+                        </div>
+                        <div class="author-info">
+                            <h4 data-translate="client2_name">محمد الخالد</h4>
+                            <p data-translate="client2_position">مدير فندق النخيل</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text" data-translate="testimonial3">
+                        "المتجر الإلكتروني الذي صممتموه لنا سهل الاستخدام للعملاء وسهل الإدارة لنا. زادت مبيعاتنا عبر الإنترنت بنسبة 60% خلال ثلاثة أشهر."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="نورة السعدي">
+                        </div>
+                        <div class="author-info">
+                            <h4 data-translate="client3_name">نورة السعدي</h4>
+                            <p data-translate="client3_position">مالكة متجر إلكتروني</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="contact_title">اتصل بنا</h2>
+                <p data-translate="contact_subtitle">نحن هنا لمساعدتك في تحقيق رؤيتك الرقمية</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 data-translate="contact_us">تواصل معنا</h3>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 data-translate="phone">الهاتف</h4>
+                            <p>+212 781-920640</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 data-translate="email">البريد الإلكتروني</h4>
+                            <p>createwebsitesapp@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 data-translate="whatsapp">واتساب</h4>
+                            <p>+212 781-920640</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" data-translate="full_name">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="email_address">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service" data-translate="service_type">نوع الخدمة</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" data-translate="choose_service">اختر الخدمة</option>
+                                <option value="restaurant" data-translate="restaurant_website">تصميم موقع مطعم</option>
+                                <option value="hotel" data-translate="hotel_website">تصميم موقع فندق</option>
+                                <option value="ecommerce" data-translate="ecommerce_website">تصميم متجر إلكتروني</option>
+                                <option value="custom" data-translate="custom_website">برمجة موقع حسب الطلب</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-translate="message">الرسالة</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" data-translate="send_message">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 data-translate="cta_title">هل أنت مستعد لبدء مشروعك؟</h2>
+            <p data-translate="cta_subtitle">احصل على استشارة مجانية الآن وتحدث مع خبير لتحويل فكرتك إلى موقع ويب احترافي</p>
+            <a href="#contact" class="btn" data-translate="free_consultation">احصل على استشارة مجانية</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 data-translate="company_name">تصميم ويب</h3>
+                    <p data-translate="company_desc">وكالة تصميم مواقع احترافية متخصصة في إنشاء مواقع عصرية وسهلة الاستخدام للمطاعم والفنادق والشركات.</p>
+                </div>
+                <div class="footer-col">
+                    <h3 data-translate="quick_links">روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home" data-translate="home">الرئيسية</a></li>
+                        <li><a href="#services" data-translate="services">الخدمات</a></li>
+                        <li><a href="#portfolio" data-translate="portfolio">أعمالنا</a></li>
+                        <li><a href="#about" data-translate="about">من نحن</a></li>
+                        <li><a href="#contact" data-translate="contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-translate="our_services">خدماتنا</h3>
+                    <ul>
+                        <li><a href="#" data-translate="service1_title">تصميم مواقع للمطاعم</a></li>
+                        <li><a href="#" data-translate="service2_title">تصميم مواقع للفنادق</a></li>
+                        <li><a href="#" data-translate="service3_title">تصميم متاجر إلكترونية</a></li>
+                        <li><a href="#" data-translate="service4_title">برمجة مواقع حسب الطلب</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-translate="contact_us">اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +212 781-920640</li>
+                        <li><i class="fas fa-envelope"></i> createwebsitesapp@gmail.com</li>
+                        <li><i class="fab fa-whatsapp"></i> +212 781-920640</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-translate="copyright">جميع الحقوق محفوظة &copy; 2023 تصميم ويب</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // نظام الترجمة
+        const translations = {
+            ar: {
+                // اللغة العربية (النص الأصلي)
+                language: "العربية",
+                arabic: "العربية",
+                english: "الإنجليزية",
+                spanish: "الإسبانية", 
+                french: "الفرنسية",
+                german: "الألمانية",
+                home: "الرئيسية",
+                services: "الخدمات",
+                portfolio: "أعمالنا",
+                about: "من نحن",
+                testimonials: "آراء العملاء",
+                contact: "اتصل بنا",
+                hero_title: "نحوّل فكرتك إلى موقع ويب احترافي يجذب الزبناء ويزيد مبيعاتك",
+                hero_subtitle: "نحن وكالة تصميم مواقع متخصصة في إنشاء مواقع عصرية وسهلة الاستخدام للمطاعم والفنادق والشركات",
+                whatsapp_contact: "تواصل عبر واتساب",
+                get_started: "ابدأ الآن",
+                services_title: "خدماتنا",
+                services_subtitle: "نقدم مجموعة متكاملة من خدمات تصميم وتطوير المواقع الإلكترونية",
+                service1_title: "تصميم مواقع للمطاعم",
+                service1_desc: "تصميم مواقع جذابة للمطاعم تعرض القائمة والموقع وساعات العمل مع دعم نظام الحجوزات",
+                service2_title: "تصميم مواقع للفنادق",
+                service2_desc: "تصميم مواقع احترافية للفنادق تعرض الغرف والمرافق مع نظام حجوزات متكامل",
+                service3_title: "تصميم متاجر إلكترونية",
+                service3_desc: "إنشاء متاجر إلكترونية متكاملة مع أنظمة دفع آمنة وإدارة المخزون والعروض",
+                service4_title: "برمجة مواقع حسب الطلب",
+                service4_desc: "تطوير مواقع مخصصة حسب احتياجات عملك مع أحدث التقنيات وأفضل الممارسات",
+                order_now: "اطلب الآن",
+                portfolio_title: "أعمالنا السابقة",
+                portfolio_subtitle: "استعرض بعض المشاريع التي نفخر بتقديمها لعملائنا",
+                portfolio_item1: "موقع مطعم فرنسي أنيق",
+                portfolio_item2: "موقع فندق عصري", 
+                portfolio_item3: "موقع نادي رياضي حديث",
+                about_title: "من نحن",
+                about_subtitle: "تعرف على فريقنا ورسالتنا",
+                about_name: "أنا وسيم، مصمم مواقع ويب محترف",
+                about_desc1: "أنا مصمم مواقع متخصص في إنشاء مواقع عصرية وسهلة الاستخدام للمطاعم والفنادق والشركات. أهدف إلى تحويل أفكار عملائي إلى تجربة رقمية جذابة واحترافية.",
+                about_desc2: "مع خبرة تزيد عن 5 سنوات في مجال تصميم وتطوير المواقع، أساعد الشركات على تعزيز وجودها الرقمي وزيادة مبيعاتها من خلال مواقع ويب مصممة بعناية ومدروسة.",
+                contact_me: "تواصل معي",
+                testimonials_title: "آراء عملائنا",
+                testimonials_subtitle: "ماذا يقول عملاؤنا عن خدماتنا",
+                testimonial1: "شكراً لكم على تصميم موقع مطعمنا الرائع! لقد ساعدنا الموقع في زيادة الحجوزات عبر الإنترنت بنسبة 40% خلال الشهر الأول فقط.",
+                testimonial2: "موقع الفندق الذي صممتموه لنا ساعد في زيادة معدل الحجوزات المباشرة وتقليل الاعتماد على مواقع الحجوزات الخارجية. تصميم احترافي وسهل الاستخدام.",
+                testimonial3: "المتجر الإلكتروني الذي صممتموه لنا سهل الاستخدام للعملاء وسهل الإدارة لنا. زادت مبيعاتنا عبر الإنترنت بنسبة 60% خلال ثلاثة أشهر.",
+                client1_name: "سارة أحمد",
+                client1_position: "مالكة مطعم لذيذ",
+                client2_name: "محمد الخالد", 
+                client2_position: "مدير فندق النخيل",
+                client3_name: "نورة السعدي",
+                client3_position: "مالكة متجر إلكتروني",
+                contact_title: "اتصل بنا",
+                contact_subtitle: "نحن هنا لمساعدتك في تحقيق رؤيتك الرقمية",
+                contact_us: "تواصل معنا",
+                phone: "الهاتف",
+                email: "البريد الإلكتروني",
+                whatsapp: "واتساب",
+                full_name: "الاسم الكامل",
+                email_address: "البريد الإلكتروني",
+                service_type: "نوع الخدمة",
+                choose_service: "اختر الخدمة",
+                restaurant_website: "تصميم موقع مطعم",
+                hotel_website: "تصميم موقع فندق",
+                ecommerce_website: "تصميم متجر إلكتروني",
+                custom_website: "برمجة موقع حسب الطلب",
+                message: "الرسالة",
+                send_message: "إرسال الرسالة",
+                cta_title: "هل أنت مستعد لبدء مشروعك؟",
+                cta_subtitle: "احصل على استشارة مجانية الآن وتحدث مع خبير لتحويل فكرتك إلى موقع ويب احترافي",
+                free_consultation: "احصل على استشارة مجانية",
+                company_name: "تصميم ويب",
+                company_desc: "وكالة تصميم مواقع احترافية متخصصة في إنشاء مواقع عصرية وسهلة الاستخدام للمطاعم والفنادق والشركات.",
+                quick_links: "روابط سريعة",
+                our_services: "خدماتنا",
+                copyright: "جميع الحقوق محفوظة © 2023 تصميم ويب"
+            },
+            en: {
+                language: "English",
+                arabic: "Arabic",
+                english: "English",
+                spanish: "Spanish",
+                french: "French",
+                german: "German",
+                home: "Home",
+                services: "Services",
+                portfolio: "Portfolio",
+                about: "About",
+                testimonials: "Testimonials",
+                contact: "Contact",
+                hero_title: "Transform your idea into a professional website that attracts customers and increases sales",
+                hero_subtitle: "We are a web design agency specialized in creating modern and user-friendly websites for restaurants, hotels, and businesses",
+                whatsapp_contact: "Contact via WhatsApp",
+                get_started: "Get Started",
+                services_title: "Our Services",
+                services_subtitle: "We offer a complete range of web design and development services",
+                service1_title: "Restaurant Website Design",
+                service1_desc: "Design attractive restaurant websites showcasing menus, location, and hours with reservation system support",
+                service2_title: "Hotel Website Design",
+                service2_desc: "Design professional hotel websites displaying rooms and amenities with integrated booking system",
+                service3_title: "E-commerce Store Design",
+                service3_desc: "Create complete e-commerce stores with secure payment systems and inventory management",
+                service4_title: "Custom Website Programming",
+                service4_desc: "Develop customized websites according to your business needs with latest technologies",
+                order_now: "Order Now",
+                portfolio_title: "Our Previous Work",
+                portfolio_subtitle: "Browse some projects we're proud to have delivered to our clients",
+                portfolio_item1: "Elegant French restaurant website",
+                portfolio_item2: "Modern hotel website",
+                portfolio_item3: "Contemporary gym website",
+                about_title: "About Us",
+                about_subtitle: "Get to know our team and mission",
+                about_name: "I'm Wassim, a professional web designer",
+                about_desc1: "I'm a web designer specialized in creating modern and user-friendly websites for restaurants, hotels, and businesses. I aim to transform my clients' ideas into attractive and professional digital experiences.",
+                about_desc2: "With over 5 years of experience in web design and development, I help companies enhance their digital presence and increase sales through carefully designed and thoughtful websites.",
+                contact_me: "Contact Me",
+                testimonials_title: "Client Testimonials",
+                testimonials_subtitle: "What our clients say about our services",
+                testimonial1: "Thank you for designing our amazing restaurant website! The site helped us increase online reservations by 40% in the first month alone.",
+                testimonial2: "The hotel website you designed for us helped increase direct booking rates and reduce dependence on external booking sites. Professional and user-friendly design.",
+                testimonial3: "The e-commerce store you designed is easy for customers to use and easy for us to manage. Our online sales increased by 60% within three months.",
+                client1_name: "Sarah Ahmed",
+                client1_position: "Owner of Delicious Restaurant",
+                client2_name: "Mohammed Al-Khalid",
+                client2_position: "Manager of Palm Hotel",
+                client3_name: "Nora Al-Saadi",
+                client3_position: "E-commerce Store Owner",
+                contact_title: "Contact Us",
+                contact_subtitle: "We're here to help you achieve your digital vision",
+                contact_us: "Contact Us",
+                phone: "Phone",
+                email: "Email",
+                whatsapp: "WhatsApp",
+                full_name: "Full Name",
+                email_address: "Email Address",
+                service_type: "Service Type",
+                choose_service: "Choose Service",
+                restaurant_website: "Restaurant Website Design",
+                hotel_website: "Hotel Website Design",
+                ecommerce_website: "E-commerce Store Design",
+                custom_website: "Custom Website Programming",
+                message: "Message",
+                send_message: "Send Message",
+                cta_title: "Ready to Start Your Project?",
+                cta_subtitle: "Get a free consultation now and talk with an expert to transform your idea into a professional website",
+                free_consultation: "Get Free Consultation",
+                company_name: "Web Design",
+                company_desc: "Professional web design agency specialized in creating modern and user-friendly websites for restaurants, hotels, and businesses.",
+                quick_links: "Quick Links",
+                our_services: "Our Services",
+                copyright: "All Rights Reserved © 2023 Web Design"
+            },
+            es: {
+                language: "Español",
+                arabic: "Árabe",
+                english: "Inglés",
+                spanish: "Español",
+                french: "Francés",
+                german: "Alemán",
+                home: "Inicio",
+                services: "Servicios",
+                portfolio: "Portafolio",
+                about: "Nosotros",
+                testimonials: "Testimonios",
+                contact: "Contacto",
+                hero_title: "Transforma tu idea en un sitio web profesional que atraiga clientes y aumente las ventas",
+                hero_subtitle: "Somos una agencia de diseño web especializada en crear sitios web modernos y fáciles de usar para restaurantes, hoteles y empresas",
+                whatsapp_contact: "Contactar por WhatsApp",
+                get_started: "Comenzar Ahora",
+                services_title: "Nuestros Servicios",
+                services_subtitle: "Ofrecemos una gama completa de servicios de diseño y desarrollo web",
+                service1_title: "Diseño de Sitios para Restaurantes",
+                service1_desc: "Diseñamos sitios web atractivos para restaurantes que muestran menús, ubicación y horarios con sistema de reservas",
+                service2_title: "Diseño de Sitios para Hoteles",
+                service2_desc: "Diseñamos sitios web profesionales para hoteles que muestran habitaciones y amenities con sistema de reservas integrado",
+                service3_title: "Diseño de Tiendas en Línea",
+                service3_desc: "Creamos tiendas en línea completas con sistemas de pago seguros y gestión de inventario",
+                service4_title: "Programación de Sitios Personalizados",
+                service4_desc: "Desarrollamos sitios web personalizados según las necesidades de su negocio con las últimas tecnologías",
+                order_now: "Pedir Ahora",
+                portfolio_title: "Nuestros Trabajos Anteriores",
+                portfolio_subtitle: "Explora algunos proyectos que nos enorgullece haber entregado a nuestros clientes",
+                portfolio_item1: "Sitio web elegante de restaurante francés",
+                portfolio_item2: "Sitio web moderno de hotel",
+                portfolio_item3: "Sitio web contemporáneo de gimnasio",
+                about_title: "Sobre Nosotros",
+                about_subtitle: "Conoce a nuestro equipo y misión",
+                about_name: "Soy Wassim, diseñador web profesional",
+                about_desc1: "Soy diseñador web especializado en crear sitios web modernos y fáciles de usar para restaurantes, hoteles y empresas. Mi objetivo es transformar las ideas de mis clientes en experiencias digitales atractivas y profesionales.",
+                about_desc2: "Con más de 5 años de experiencia en diseño y desarrollo web, ayudo a las empresas a mejorar su presencia digital y aumentar las ventas a través de sitios web cuidadosamente diseñados.",
+                contact_me: "Contáctame",
+                testimonials_title: "Testimonios de Clientes",
+                testimonials_subtitle: "Lo que dicen nuestros clientes sobre nuestros servicios",
+                testimonial1: "¡Gracias por diseñar nuestro increíble sitio web de restaurante! El sitio nos ayudó a aumentar las reservas en línea en un 40% solo en el primer mes.",
+                testimonial2: "El sitio web del hotel que diseñaron para nosotros ayudó a aumentar las tasas de reserva directa y reducir la dependencia de sitios de reserva externos. Diseño profesional y fácil de usar.",
+                testimonial3: "La tienda en línea que diseñaron es fácil de usar para los clientes y fácil de gestionar para nosotros. Nuestras ventas en línea aumentaron un 60% en tres meses.",
+                client1_name: "Sarah Ahmed",
+                client1_position: "Propietaria de Restaurante Delicioso",
+                client2_name: "Mohammed Al-Khalid",
+                client2_position: "Gerente del Hotel Palm",
+                client3_name: "Nora Al-Saadi",
+                client3_position: "Propietaria de Tienda en Línea",
+                contact_title: "Contáctenos",
+                contact_subtitle: "Estamos aquí para ayudarle a lograr su visión digital",
+                contact_us: "Contáctenos",
+                phone: "Teléfono",
+                email: "Correo Electrónico",
+                whatsapp: "WhatsApp",
+                full_name: "Nombre Completo",
+                email_address: "Correo Electrónico",
+                service_type: "Tipo de Servicio",
+                choose_service: "Elegir Servicio",
+                restaurant_website: "Diseño de Sitio para Restaurante",
+                hotel_website: "Diseño de Sitio para Hotel",
+                ecommerce_website: "Diseño de Tienda en Línea",
+                custom_website: "Programación de Sitio Personalizado",
+                message: "Mensaje",
+                send_message: "Enviar Mensaje",
+                cta_title: "¿Listo para Comenzar tu Proyecto?",
+                cta_subtitle: "Obtén una consulta gratuita ahora y habla con un experto para transformar tu idea en un sitio web profesional",
+                free_consultation: "Obtener Consulta Gratuita",
+                company_name: "Diseño Web",
+                company_desc: "Agencia profesional de diseño web especializada en crear sitios web modernos y fáciles de usar para restaurantes, hoteles y empresas.",
+                quick_links: "Enlaces Rápidos",
+                our_services: "Nuestros Servicios",
+                copyright: "Todos los Derechos Reservados © 2023 Diseño Web"
+            },
+            fr: {
+                language: "Français",
+                arabic: "Arabe",
+                english: "Anglais",
+                spanish: "Espagnol",
+                french: "Français",
+                german: "Allemand",
+                home: "Accueil",
+                services: "Services",
+                portfolio: "Portfolio",
+                about: "À propos",
+                testimonials: "Témoignages",
+                contact: "Contact",
+                hero_title: "Transformez votre idée en un site web professionnel qui attire les clients et augmente les ventes",
+                hero_subtitle: "Nous sommes une agence de conception de sites web spécialisée dans la création de sites web modernes et faciles à utiliser pour les restaurants, hôtels et entreprises",
+                whatsapp_contact: "Contactez via WhatsApp",
+                get_started: "Commencer",
+                services_title: "Nos Services",
+                services_subtitle: "Nous offrons une gamme complète de services de conception et développement web",
+                service1_title: "Conception de Sites pour Restaurants",
+                service1_desc: "Concevoir des sites web attrayants pour restaurants présentant menus, emplacement et horaires avec système de réservation",
+                service2_title: "Conception de Sites pour Hôtels",
+                service2_desc: "Concevoir des sites web professionnels pour hôtels affichant chambres et équipements avec système de réservation intégré",
+                service3_title: "Conception de Boutiques en Ligne",
+                service3_desc: "Créer des boutiques en ligne complètes avec systèmes de paiement sécurisés et gestion des stocks",
+                service4_title: "Programmation de Sites Personnalisés",
+                service4_desc: "Développer des sites web personnalisés selon les besoins de votre entreprise avec les dernières technologies",
+                order_now: "Commander Maintenant",
+                portfolio_title: "Nos Réalisations",
+                portfolio_subtitle: "Parcourez certains projets que nous sommes fiers d'avoir livrés à nos clients",
+                portfolio_item1: "Site web élégant de restaurant français",
+                portfolio_item2: "Site web moderne d'hôtel",
+                portfolio_item3: "Site web contemporain de salle de sport",
+                about_title: "À Propos de Nous",
+                about_subtitle: "Découvrez notre équipe et notre mission",
+                about_name: "Je suis Wassim, concepteur web professionnel",
+                about_desc1: "Je suis concepteur web spécialisé dans la création de sites web modernes et faciles à utiliser pour les restaurants, hôtels et entreprises. Je vise à transformer les idées de mes clients en expériences numériques attrayantes et professionnelles.",
+                about_desc2: "Avec plus de 5 ans d'expérience en conception et développement web, j'aide les entreprises à renforcer leur présence numérique et augmenter leurs ventes grâce à des sites web soigneusement conçus.",
+                contact_me: "Me Contacter",
+                testimonials_title: "Témoignages Clients",
+                testimonials_subtitle: "Ce que disent nos clients de nos services",
+                testimonial1: "Merci d'avoir conçu notre magnifique site web de restaurant ! Le site nous a aidés à augmenter les réservations en ligne de 40% dès le premier mois.",
+                testimonial2: "Le site web d'hôtel que vous avez conçu pour nous a aidé à augmenter le taux de réservation directe et réduire la dépendance aux sites de réservation externes. Conception professionnelle et facile à utiliser.",
+                testimonial3: "La boutique en ligne que vous avez conçue est facile à utiliser pour les clients et facile à gérer pour nous. Nos ventes en ligne ont augmenté de 60% en trois mois.",
+                client1_name: "Sarah Ahmed",
+                client1_position: "Propriétaire du Restaurant Délicieux",
+                client2_name: "Mohammed Al-Khalid",
+                client2_position: "Directeur de l'Hôtel Palm",
+                client3_name: "Nora Al-Saadi",
+                client3_position: "Propriétaire de Boutique en Ligne",
+                contact_title: "Contactez-Nous",
+                contact_subtitle: "Nous sommes là pour vous aider à réaliser votre vision numérique",
+                contact_us: "Contactez-Nous",
+                phone: "Téléphone",
+                email: "E-mail",
+                whatsapp: "WhatsApp",
+                full_name: "Nom Complet",
+                email_address: "Adresse E-mail",
+                service_type: "Type de Service",
+                choose_service: "Choisir le Service",
+                restaurant_website: "Conception de Site pour Restaurant",
+                hotel_website: "Conception de Site pour Hôtel",
+                ecommerce_website: "Conception de Boutique en Ligne",
+                custom_website: "Programmation de Site Personnalisé",
+                message: "Message",
+                send_message: "Envoyer le Message",
+                cta_title: "Prêt à Démarrer Votre Projet ?",
+                cta_subtitle: "Obtenez une consultation gratuite maintenant et parlez avec un expert pour transformer votre idée en site web professionnel",
+                free_consultation: "Obtenir une Consultation Gratuite",
+                company_name: "Conception Web",
+                company_desc: "Agence professionnelle de conception de sites web spécialisée dans la création de sites web modernes et faciles à utiliser pour les restaurants, hôtels et entreprises.",
+                quick_links: "Liens Rapides",
+                our_services: "Nos Services",
+                copyright: "Tous Droits Réservés © 2023 Conception Web"
+            },
+            de: {
+                language: "Deutsch",
+                arabic: "Arabisch",
+                english: "Englisch",
+                spanish: "Spanisch",
+                french: "Französisch",
+                german: "Deutsch",
+                home: "Startseite",
+                services: "Dienstleistungen",
+                portfolio: "Portfolio",
+                about: "Über uns",
+                testimonials: "Kundenstimmen",
+                contact: "Kontakt",
+                hero_title: "Verwandeln Sie Ihre Idee in eine professionelle Website, die Kunden anzieht und den Umsatz steigert",
+                hero_subtitle: "Wir sind eine Webdesign-Agentur, spezialisiert auf die Erstellung moderner und benutzerfreundlicher Websites für Restaurants, Hotels und Unternehmen",
+                whatsapp_contact: "Kontakt per WhatsApp",
+                get_started: "Jetzt starten",
+                services_title: "Unsere Dienstleistungen",
+                services_subtitle: "Wir bieten eine vollständige Palette von Webdesign- und Entwicklungsdienstleistungen",
+                service1_title: "Restaurant-Websitedesign",
+                service1_desc: "Gestaltung ansprechender Restaurant-Websites mit Speisekarten, Standort und Öffnungszeiten mit Reservierungssystem",
+                service2_title: "Hotel-Websitedesign",
+                service2_desc: "Gestaltung professioneller Hotel-Websites mit Zimmern und Einrichtungen mit integriertem Buchungssystem",
+                service3_title: "E-Commerce-Shop-Design",
+                service3_desc: "Erstellung kompletter E-Commerce-Shops mit sicheren Zahlungssystemen und Bestandsverwaltung",
+                service4_title: "Individuelle Website-Programmierung",
+                service4_desc: "Entwicklung maßgeschneiderter Websites nach Ihren Geschäftsanforderungen mit neuesten Technologien",
+                order_now: "Jetzt bestellen",
+                portfolio_title: "Unsere bisherigen Arbeiten",
+                portfolio_subtitle: "Durchstöbern Sie einige Projekte, auf die wir stolz sind, sie an unsere Kunden geliefert zu haben",
+                portfolio_item1: "Elegante französische Restaurant-Website",
+                portfolio_item2: "Moderne Hotel-Website",
+                portfolio_item3: "Zeitgemäße Fitnessstudio-Website",
+                about_title: "Über uns",
+                about_subtitle: "Lernen Sie unser Team und unsere Mission kennen",
+                about_name: "Ich bin Wassim, professioneller Webdesigner",
+                about_desc1: "Ich bin Webdesigner, spezialisiert auf die Erstellung moderner und benutzerfreundlicher Websites für Restaurants, Hotels und Unternehmen. Mein Ziel ist es, die Ideen meiner Kunden in ansprechende und professionelle digitale Erlebnisse zu verwandeln.",
+                about_desc2: "Mit über 5 Jahren Erfahrung im Webdesign und -entwicklung helfe ich Unternehmen, ihre digitale Präsenz zu verbessern und den Umsatz durch sorgfältig gestaltete Websites zu steigern.",
+                contact_me: "Kontaktieren Sie mich",
+                testimonials_title: "Kundenstimmen",
+                testimonials_subtitle: "Was unsere Kunden über unsere Dienstleistungen sagen",
+                testimonial1: "Vielen Dank für die Gestaltung unserer fantastischen Restaurant-Website! Die Seite hat uns geholfen, die Online-Reservierungen im ersten Monat um 40% zu steigern.",
+                testimonial2: "Die Hotel-Website, die Sie für uns gestaltet haben, half, die Direktbuchungsraten zu erhöhen und die Abhängigkeit von externen Buchungsseiten zu verringern. Professionelles und benutzerfreundliches Design.",
+                testimonial3: "Der E-Commerce-Shop, den Sie gestaltet haben, ist für Kunden einfach zu bedienen und für uns einfach zu verwalten. Unsere Online-Verkäufe stiegen innerhalb von drei Monaten um 60%.",
+                client1_name: "Sarah Ahmed",
+                client1_position: "Inhaberin von Leckeres Restaurant",
+                client2_name: "Mohammed Al-Khalid",
+                client2_position: "Manager des Palm Hotels",
+                client3_name: "Nora Al-Saadi",
+                client3_position: "Inhaberin eines E-Commerce-Shops",
+                contact_title: "Kontaktieren Sie uns",
+                contact_subtitle: "Wir sind hier, um Ihnen zu helfen, Ihre digitale Vision zu verwirklichen",
+                contact_us: "Kontaktieren Sie uns",
+                phone: "Telefon",
+                email: "E-Mail",
+                whatsapp: "WhatsApp",
+                full_name: "Vollständiger Name",
+                email_address: "E-Mail-Adresse",
+                service_type: "Dienstleistungsart",
+                choose_service: "Dienstleistung wählen",
+                restaurant_website: "Restaurant-Websitedesign",
+                hotel_website: "Hotel-Websitedesign",
+                ecommerce_website: "E-Commerce-Shop-Design",
+                custom_website: "Individuelle Website-Programmierung",
+                message: "Nachricht",
+                send_message: "Nachricht senden",
+                cta_title: "Bereit, Ihr Projekt zu starten?",
+                cta_subtitle: "Holen Sie sich jetzt eine kostenlose Beratung und sprechen Sie mit einem Experten, um Ihre Idee in eine professionelle Website zu verwandeln",
+                free_consultation: "Kostenlose Beratung erhalten",
+                company_name: "Webdesign",
+                company_desc: "Professionelle Webdesign-Agentur, spezialisiert auf die Erstellung moderner und benutzerfreundlicher Websites für Restaurants, Hotels und Unternehmen.",
+                quick_links: "Schnelllinks",
+                our_services: "Unsere Dienstleistungen",
+                copyright: "Alle Rechte vorbehalten © 2023 Webdesign"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Language Switcher
+        const languageBtn = document.querySelector('.language-btn');
+        const languageOptions = document.querySelector('.language-options');
+        const languageText = languageBtn.querySelector('span');
+
+        // Toggle language dropdown
+        languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageOptions.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            languageOptions.classList.remove('show');
+        });
+
+        // Language selection
+        document.querySelectorAll('.language-options a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const selectedLang = this.getAttribute('data-lang');
+                
+                // Change language
+                changeLanguage(selectedLang);
+                
+                // Update button text
+                languageText.textContent = translations[selectedLang].language;
+                
+                languageOptions.classList.remove('show');
+            });
+        });
+
+        // Function to change language
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Update HTML direction for RTL/LTR
+            if (lang === 'ar') {
+                document.body.dir = 'rtl';
+                document.body.style.fontFamily = "'Cairo', sans-serif";
+            } else {
+                document.body.dir = 'ltr';
+                document.body.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            }
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update form select options
+            updateFormOptions(lang);
+            
+            // Save language preference
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Update form select options based on language
+        function updateFormOptions(lang) {
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) {
+                const options = serviceSelect.querySelectorAll('option');
+                options.forEach(option => {
+                    const value = option.getAttribute('data-translate');
+                    if (value && translations[lang][value]) {
+                        option.textContent = translations[lang][value];
+                    }
+                });
+            }
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'ar';
+            changeLanguage(savedLang);
+            languageText.textContent = translations[savedLang].language;
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = currentLang === 'ar' ? 
+                'شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.' :
+                'Thank you for contacting us! We will get back to you as soon as possible.';
+            alert(message);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
